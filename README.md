@@ -16,7 +16,7 @@ allprojects {
 
 In app Gradle add
 ```bash
-	implementation 'com.github.kushalgupta0565:ExpandableRecyclerView:1.0.0'
+	implementation 'com.github.kushalgupta0565:KExpandableRecyclerView:1.0.0'
 ```
 
 
