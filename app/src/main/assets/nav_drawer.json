@@ -1,0 +1,79 @@
+{
+  "item": [
+    {
+      "id": "1",
+      "image_url": "Google.com",
+      "title": "Home",
+      "sub_items": []
+    },
+    {
+      "id": "2",
+      "image_url": "Google.com",
+      "title": "Lead Contact List",
+      "sub_items": [
+        {
+          "id": "021",
+          "text": "Contact 1"
+        },
+        {
+          "id": "022",
+          "text": "Contact 2"
+        },
+        {
+          "id": "022",
+          "text": "Contact 3"
+        },
+        {
+          "id": "022",
+          "text": "Contact 4"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "image_url": "Google.com",
+      "title": "Offers",
+      "sub_items": [
+        {
+          "id": "021",
+          "text": "Offer 1"
+        },
+        {
+          "id": "022",
+          "text": "Offer 2"
+        },
+        {
+          "id": "022",
+          "text": "Offer 3"
+        },
+        {
+          "id": "022",
+          "text": "Offer 4"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "image_url": "Google.com",
+      "title": "Analytics",
+      "sub_items": [
+        {
+          "id": "021",
+          "text": "Analytics 1"
+        },
+        {
+          "id": "022",
+          "text": "Analytics 2"
+        },
+        {
+          "id": "022",
+          "text": "Analytics 3"
+        },
+        {
+          "id": "022",
+          "text": "Analytics 4"
+        }
+      ]
+    }
+  ]
+}
