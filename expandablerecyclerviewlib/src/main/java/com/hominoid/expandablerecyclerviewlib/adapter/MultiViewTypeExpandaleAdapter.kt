@@ -8,8 +8,8 @@ import com.hominoid.expandablerecyclerviewlib.viewholders.ChildViewHolder
 import com.hominoid.expandablerecyclerviewlib.viewholders.GroupViewHolder
 import com.hominoid.expandablerecyclerviewlib.viewholders.HeaderViewHolder
 
-abstract class MultiViewTypeExpandaleAdapter<GVH : GroupViewHolder, CVH : ChildViewHolder>(groups: List<ExpandableListItem<*, *>>) :
-    ExpandableRecyclerViewAdapter<GVH, CVH>(groups) {
+abstract class MultiViewTypeExpandaleAdapter<GVH : GroupViewHolder, CVH : ChildViewHolder>(groups: List<ExpandableListItem<*, *>>, isHeaderEnabled: Boolean = false) :
+    ExpandableRecyclerViewAdapter<GVH, CVH>(groups, isHeaderEnabled) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         if (isGroup(viewType)) {
@@ -37,7 +37,7 @@ abstract class MultiViewTypeExpandaleAdapter<GVH : GroupViewHolder, CVH : ChildV
     }
 
     override fun getItemViewType(position: Int): Int {
-        if (showHeaderView && position == 0) {
+        if (isHeaderViewEnabled() && position == 0) {
             return VIEW_TYPE_HEADER
         } else {
             val listPosition = getExpandableListPosition(position)

@@ -15,7 +15,8 @@ import com.hominoid.expandablerecyclerviewlib.viewholders.GroupViewHolder
 import com.hominoid.expandablerecyclerviewlib.viewholders.HeaderViewHolder
 
 abstract class ExpandableRecyclerViewAdapter<GVH : GroupViewHolder, CVH : ChildViewHolder>(
-    groups: List<ExpandableListItem<*, *>>
+    groups: List<ExpandableListItem<*, *>>,
+    val isHeaderEnabled: Boolean = false
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>(), ExpandCollapseListener,
     OnGroupClickListener, HeaderViewHolderCallback {
 
@@ -26,8 +27,12 @@ abstract class ExpandableRecyclerViewAdapter<GVH : GroupViewHolder, CVH : ChildV
     var listener: ExpandableListItemClickListener? = null
     private var expandCollapseListener: GroupExpandCollapseListener? = null
 
+    fun isHeaderViewEnabled(): Boolean {
+        return isHeaderEnabled
+    }
+
     override fun getItemViewType(position: Int): Int {
-        if (showHeaderView) {
+        if (isHeaderEnabled) {
             if (position == 0)
                 return VIEW_TYPE_HEADER
             else
@@ -106,7 +111,7 @@ abstract class ExpandableRecyclerViewAdapter<GVH : GroupViewHolder, CVH : ChildV
         get() = expandableList.groups
 
     override fun getItemCount(): Int {
-        if (showHeaderView) {
+        if (isHeaderEnabled) {
             return expandableList.visibleItemCount + 1
         }
         return expandableList.visibleItemCount
@@ -218,11 +223,10 @@ abstract class ExpandableRecyclerViewAdapter<GVH : GroupViewHolder, CVH : ChildV
     companion object {
         private const val EXPAND_STATE_MAP = "expandable_recyclerview_adapter_map"
         val VIEW_TYPE_HEADER = 1029381
-        var showHeaderView = false
     }
 
     init {
-        expandableList = ExpandableList(groups)
+        expandableList = ExpandableList(groups, isHeaderEnabled)
         expandCollapseController = ExpandCollapseController(expandableList, this)
     }
 

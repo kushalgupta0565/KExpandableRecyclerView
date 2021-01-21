@@ -1,9 +1,8 @@
 package com.hominoid.expandablerecyclerviewlib.models
 
-import com.hominoid.expandablerecyclerviewlib.adapter.ExpandableRecyclerViewAdapter
-
 class ExpandableList(
-    var groups: List<ExpandableListItem<*, *>>
+    var groups: List<ExpandableListItem<*, *>>,
+    val isHeaderEnabled: Boolean
 ) {
     @JvmField
     var expandedGroupIndexes: BooleanArray
@@ -138,7 +137,7 @@ class ExpandableList(
 
     fun getExpandableListPosition(position: Int): ExpandableListPosition {
         val listPos: ExpandableListPosition
-        if (ExpandableRecyclerViewAdapter.showHeaderView)
+        if (isHeaderEnabled)
             listPos = getUnflattenedPosition(position - 1)
         else
             listPos = getUnflattenedPosition(position)

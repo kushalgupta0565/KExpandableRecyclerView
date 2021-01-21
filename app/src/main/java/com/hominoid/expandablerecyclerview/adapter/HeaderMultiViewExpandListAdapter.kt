@@ -16,11 +16,7 @@ import com.hominoid.expandablerecyclerviewlib.viewholders.HeaderViewHolder
 class HeaderMultiViewExpandListAdapter(
     var context: Context,
     groups: List<ExpandableListItem<*, *>>
-) : MultiViewTypeExpandaleAdapter<GroupViewHolder, ChildViewHolder>(groups) {
-
-    init {
-        showHeaderView = true
-    }
+) : MultiViewTypeExpandaleAdapter<GroupViewHolder, ChildViewHolder>(groups, true) {
 
     override fun onCreateHeaderViewHolder(parent: ViewGroup, viewType: Int): HeaderViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.header, parent, false)
